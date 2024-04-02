@@ -59,3 +59,36 @@ function getRecipeApi() {
 
 submitButton.addEventListener('click', getWeatherApi);
 getRecipesButton.addEventListener('click', getRecipeApi);
+const modal = document.getElementById('modal');
+    const closeModalButton = document.getElementById('closeModal');
+    const searchButton = document.getElementById('searchButton');
+    const applyFiltersButton = document.getElementById('applyFilters');
+
+    
+    function showModal() {
+        modal.classList.remove('hidden');
+    }
+
+    
+    function closeModal() {
+        modal.classList.add('hidden');
+    }
+
+    
+    window.addEventListener('load', () => {
+        
+        showModal();
+    });
+
+    
+    closeModalButton.addEventListener('click', () => {
+        
+        closeModal();
+    });
+
+    
+    applyFiltersButton.addEventListener('click', () => {
+        
+        closeModal();
+        
+    });

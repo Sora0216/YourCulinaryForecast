@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seasonal Eats</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
+
 <body>
-    <header>
-        <h1>Seasonal Eats</h1>
-    </header>
+
+  
 
     <!-- component -->
 <div class="flex h-screen bg-gray-200 items-center justify-center  mt-32 mb-32">
@@ -70,7 +72,53 @@
   </div>
 
 
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-50"></div>
+    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
+        <div class="modal-content py-4 text-left px-6">
+            
+            <div class="mb-6">
+                <label for="zipCodeModal" class="block text-gray-700 mb-2">Enter Your Zip Code:</label>
+                <input type="text" id="zipCodeModal" name="zipCodeModal" class="mt-1 p-2 w-full border border-black border-b rounded-lg focus:outline-none focus:border-black">
+            </div>
+            
+            <div class="flex justify-between items-center pb-3">
+                <p class="text-2xl font-bold">Select Dietary Restrictions and Allergies</p>
+                
+                <button id="closeModal" class="focus:outline-none">
+                    <div class="w-5 h-5 text-black">
+                        <div class="w-full h-0.5 bg-black transform rotate-45 origin-center"></div>
+                        <div class="w-full h-0.5 bg-black transform -rotate-45 origin-center"></div>
+                    </div>
+                </button>
+            </div>
+           
+            <div class="grid grid-cols-1 gap-2">
+                <label><input type="checkbox" class="form-checkbox" value="vegetarian"> Vegetarian</label>
+                <label><input type="checkbox" class="form-checkbox" value="vegan"> Vegan</label>
+                <label><input type="checkbox" class="form-checkbox" value="pescatarian"> Pescatarian</label>
+                <label><input type="checkbox" class="form-checkbox" value="gluten"> Gluten Allergy</label>
+                <label><input type="checkbox" class="form-checkbox" value="dairy"> Dairy Allergy</label>
+                <label><input type="checkbox" class="form-checkbox" value="nuts"> Nut Allergy</label>
+                <label><input type="checkbox" class="form-checkbox" value="shellfish"> Shellfish Allergy</label>
+                <label><input type="checkbox" class="form-checkbox" value="soy"> Soy Allergy</label>
+                
+            </div>
+            
+            <div class="flex justify-end pt-2">
+                <button id="applyFilters" class="px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-600">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script src="./assets/js/script.js"></script>
+ <script src="./assets/js/script.js"></script>
 </body>
+
+
 </html>
+
+
+
+
+
