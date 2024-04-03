@@ -8,63 +8,41 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <header>
-        <h1>Seasonal Eats</h1>
+    <header class="row">
+        <h1 class="col-8 text-4xl">Seasonal Eats</h1>
+        <div class="col-6">
+          <div class="mt-5 mx-7">
+            <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Please enter your zip code for weather appropriate recipe suggestions!</label>
+            <input id="zipcode-input" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Zip code" />
+            <button id='submit-button' class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Submit</button>
+          </div>
+        </div>
+        
     </header>
 
     <!-- component -->
-<div class="flex h-screen bg-gray-200 items-center justify-center  mt-32 mb-32">
-    <div class="grid bg-white rounded-lg shadow-xl w-11/12 md:w-9/12 lg:w-1/2">
-      <div class="flex justify-center py-4">
-        <div class="flex bg-purple-200 rounded-full md:p-4 p-2 border-2 border-purple-300">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+<div id="weather-dashboard" class="container bg-grey-lightest mx-auto shadow rounded pb-4 bg-cover" style="color:#606F7B;background-color: rgb(165, 182, 198); background-image:url('https://68.media.tumblr.com/f6a4004f3092b0d664daeabb95d5d195/tumblr_oduyciOJNb1uhjffgo1_500.gif');">
+  <div class="mt-2 p-4 border-b border-grey-light  text-center">
+    <span id="city-name" class="text-4xl font-thin">Austin, TX</span>
+     <span id="postal-code" class="hidden sm:inline-block align-bottom text-xs">( 78704 )</span>
+  </div>
+  <div class="flex justify-center">
+    <div class="text-center p-2">
+        <div class="text-lg text-grey-light">
+            <span id="temperature-info" class="text-center text-5xl text-#606F7B mx-6  font-thin">71˚F</span>
+        </div>
+        <div id="date-info" class="text-grey-light tracking-wide">
+          Tuesday | 2 Apr
         </div>
       </div>
-  
-      <div class="modal-header flex justify-center">
-        <div class="flex">
-          <h1 class="text-gray-600 font-bold md:text-2xl text-xl">What's for Dinner?</h1>
-        </div>
-      </div>
+  </div>
+</div>
 
-      <div class="zipcode-input grid grid-cols-1 mt-5 mx-7">
-        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Please enter your zip code for weather appropriate recipe suggestions!</label>
-        <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Zip code" />
-      </div>
-  
-      
-      <!-- <div class="ingredient-1-input grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-        <div class="grid grid-cols-1">
-          <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">What's in your pantry?</label>
-          <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingredient 1 - Optional" />
-        </div>
-        <div class="ingredient-2-input grid grid-cols-1">
-          <label class="uppercase md:text-sm text-xs text-gray-500 text-white font-semibold">Ingredient 2</label>
-          <input class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Ingredient 2 - Optional" />
-        </div>
-      </div>
-  
-      <div class="dietary-restrictions-input grid grid-cols-1 mt-5 mx-7">
-        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Dietary Restrictions</label>
-        <select class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-          <option>None</option>
-          <option>Gluten Free</option>
-          <option>Vegetarian</option>
-          <option>Vegan</option>
-        </select>
-      </div> -->
-  
-      <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-        <button class=' w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' id='cancel-button'>Cancel</button>
-        <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' id='submit-button'>Submit</button>
-      </div>
 
       
-      <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-        <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' id='get-recipes-button'>Get Recipes</button>
-      </div>
-
-      div 
+<div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
+  <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' id='get-recipes-button'>Get Recipes</button>
+</div>
   
     </div>
   </div>
