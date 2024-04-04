@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+.food-images {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
+.food-images img {
+    width: 30%; 
+    height: auto;
+  }
+
+#Recipe-Names {
+  
+}
+
+  .separator {
+    height: 10px; 
+    margin: 20px 0;
+  }
+
+.text-between {
+    text-align: center;
+    margin-bottom: 10px;
+}
