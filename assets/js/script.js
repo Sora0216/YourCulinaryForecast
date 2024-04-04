@@ -4,50 +4,48 @@ const cancelButton = document.getElementById('cancel-button');
 const getRecipesButton = document.getElementById('get-recipes-button');
 
 const modal = document.getElementById('modal');
-const closeModalButton = document.getElementById('closeModal');
-const applyFiltersButton = document.getElementById('applyFilters');
-const zipCodeInput = document.getElementById('modal-zipcode-input');
-
-//Modal functions added by Stephen
-function showModal() {
-    modal.classList.remove('hidden');
-}
-
-
-function closeModal() {
-    modal.classList.add('hidden');
-}
-
-
-window.addEventListener('load', () => {
+    const closeModalButton = document.getElementById('closeModal');
+    const applyFiltersButton = document.getElementById('applyFilters');
+    const zipCodeInput = document.getElementById('modal-zipcode-input');
     
-    showModal();
-});
+    function showModal() {
+        modal.classList.remove('hidden');
+    }
 
-
-closeModalButton.addEventListener('click', () => {
     
-    closeModal();
-});
+    function closeModal() {
+        modal.classList.add('hidden');
+    }
 
+    
+    window.addEventListener('load', () => {
+        
+        showModal();
+    });
 
-applyFiltersButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  const zipCode = zipCodeInput.value.trim();
-  if (zipCode !== '') {
-    requestWeatherModal(event); 
-    requestRecipes();
-    closeModal();
-  } else {
-    alert('Please enter a valid zip code.');
-  }
-});
+    
+    closeModalButton.addEventListener('click', () => {
+        
+        closeModal();
+    });
 
-//Function to retrieve weather data from weatherbit API and use it to populate the weather dashboard
+    
+    applyFiltersButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      const zipCode = zipCodeInput.value.trim();
+      if (zipCode !== '') {
+        requestWeatherModal(event); 
+        requestRecipes();
+        closeModal();
+      } else {
+        alert('Please enter a valid zip code.');
+      }
+  });
+
 function requestWeather(event) {
   event.preventDefault();
-  const zipcode = document.getElementById('zipcode-input').value;
-  let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=b8cec87fcad4466891c1e31ddead93d0&units=I`;
+  const zipcode = document.getElementById('zipcode-input').value
+  let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=0ebe550f05ea43fc8fa4244dfa62a832&units=I`;
   
   fetch(weatherbitApi)
     .then(function (response) {
@@ -57,7 +55,7 @@ function requestWeather(event) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+        console.log(data);
 
         //retrieve weather data
         const weatherData = data.data[0];
@@ -68,10 +66,15 @@ function requestWeather(event) {
         //update date
         document.getElementById('date-info').textContent = weatherData.datetime + 'pm';
             
+        // save weather data to local storage 
+        localStorage.setItem('weatherData', JSON.stringify(weatherData));
+    })
+    .catch(function(error) {
+      console.error('Error fetching weather data', error);
     });
 }
 
-//Duplicated weather function for Stephen's Modal
+
 function requestWeatherModal(event) {
   event.preventDefault();
   const zipcode = document.getElementById('modal-zipcode-input').value
@@ -102,14 +105,17 @@ function requestWeatherModal(event) {
 
 
 function requestRecipes() {
-    const spoonacularAPI = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=99232366887c49358403ec00d7bef302&number=5';
+    const spoonacularAPI = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=99232366887c49358403ec00d7bef302&number=6';
   
     fetch(spoonacularAPI)
       .then(function (response) {
+      if (!response.ok) {
+        throw new Error('There was a problem fetching the recipe data');
+      }
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
+        console.log(data);
     //     //looping over the fetch response and inserting the URL of your repos into a list
     //     for (let i = 0; i < data.length; i++) {
     //       //Create a list element
@@ -122,8 +128,76 @@ function requestRecipes() {
     //       repoList.appendChild(listItem);
     //     }
     //   });
-      })
+    localStorage.setItem('recipesData', JSON.stringify(data));
+    })
+    .catch(function(error) {
+      console.error('Error fetching weather data', error);
+      });
 }
+
+function displayRecipes(data) {
+  const resultsDiv1 = document.getElementById('results1');
+  const resultsDiv2 = document.getElementById('results2');
+
+  resultsDiv1.innerHTML = ''; // Clear previous results
+  resultsDiv2.innerHTML = ''; // Clear previous results
+
+  // Split the recipe data into two arrays, each containing 3 recipes
+  const recipes1 = data.results.slice(0, 3);
+  const recipes2 = data.results.slice(3, 6);
+
+  // Function to create recipe elements
+  function createRecipeElements(recipes, resultsDiv) {
+      recipes.forEach(recipe => {
+          // Grab specific information from each recipe object
+          const recipeName = recipe.title;
+          const recipeImageURL = recipe.image;
+
+          // Create elements for each recipe
+          const recipeDiv = document.createElement('div');
+          const anchor = document.createElement('a');
+          recipeDiv.classList.add('recipe');
+
+          // Create elements to display the recipe information
+          const title = document.createElement('h3');
+          title.textContent = recipeName;
+
+          const image = document.createElement('img');
+          image.src = recipeImageURL;
+          image.alt = recipeName;
+
+          // Append elements to the recipeDiv
+          recipeDiv.appendChild(title);
+          
+          // append image to anchor 
+          anchor.appendChild(image)
+          recipeDiv.appendChild(anchor)
+          anchor.setAttribute('href', '#')
+
+          // Append recipeDiv to the resultsDiv
+          resultsDiv.appendChild(recipeDiv);
+      });
+  }
+
+  // Display recipes in resultsDiv1
+  createRecipeElements(recipes1, resultsDiv1);
+
+  // Display recipes in resultsDiv2
+  createRecipeElements(recipes2, resultsDiv2);
+}
+
+
+// Event listener for the "Get Recipes" button
+getRecipesButton.addEventListener('click', function() {
+    // Retrieve recipes data from localStorage
+    const recipesData = JSON.parse(localStorage.getItem('recipesData'));
+    if (recipesData) {
+        // Call the displayRecipes function with the retrieved data
+        displayRecipes(recipesData);
+    }
+});
+
+
 
 submitButton.addEventListener('click', requestWeather);
 getRecipesButton.addEventListener('click', requestRecipes);
