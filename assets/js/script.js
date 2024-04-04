@@ -3,6 +3,44 @@ const submitButton = document.getElementById('submit-button');
 const cancelButton = document.getElementById('cancel-button');
 const getRecipesButton = document.getElementById('get-recipes-button');
 
+const modal = document.getElementById('modal');
+    const closeModalButton = document.getElementById('closeModal');
+    const applyFiltersButton = document.getElementById('applyFilters');
+    const zipCodeInput = document.getElementById('modal-zipcode-input');
+    
+    function showModal() {
+        modal.classList.remove('hidden');
+    }
+
+    
+    function closeModal() {
+        modal.classList.add('hidden');
+    }
+
+    
+    window.addEventListener('load', () => {
+        
+        showModal();
+    });
+
+    
+    closeModalButton.addEventListener('click', () => {
+        
+        closeModal();
+    });
+
+    
+    applyFiltersButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      const zipCode = zipCodeInput.value.trim();
+      if (zipCode !== '') {
+        requestWeatherModal(event); 
+        requestRecipes();
+        closeModal();
+      } else {
+        alert('Please enter a valid zip code.');
+      }
+  });
 
 function requestWeather(event) {
   event.preventDefault();
