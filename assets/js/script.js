@@ -47,7 +47,7 @@ applyFiltersButton.addEventListener('click', function(event) {
 function requestWeather(event) {
   event.preventDefault();
   const zipcode = document.getElementById('zipcode-input').value;
-  let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=0ebe550f05ea43fc8fa4244dfa62a832&units=I`;
+  let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=b8cec87fcad4466891c1e31ddead93d0&units=I`;
   
   fetch(weatherbitApi)
     .then(function (response) {
