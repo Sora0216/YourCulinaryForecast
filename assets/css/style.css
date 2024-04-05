@@ -44,7 +44,7 @@ Body {
   margin: 0 auto;
 }
 
-.food-images img:hover {
+.recipe :hover {
   transform: scale(1.1); /* Scale up the image on hover */
   opacity: 0.8; /* Reduce opacity on hover */
 }
