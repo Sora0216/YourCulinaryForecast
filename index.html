@@ -85,19 +85,6 @@
             </div>
           </div>
         </nav>
-      
-        <header class="bg-white shadow">
-          <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900">Seasonal Eats</h1>
-          </div>
-        </header>
-            
-      
-      
-      
-      
-          </div>
-        </div>
     </header>
 
     <!-- component -->
@@ -115,6 +102,44 @@
           Tuesday | 2 Apr
         </div>
       </div>
+      <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="modal-overlay absolute w-full h-full bg-black opacity-50"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                
+                <div class="mb-6">
+                    <label for="zipCodeModal" class="block text-gray-700 mb-2">Enter Your Zip Code:</label>
+                    <input type="text" id="modal-zipcode-input" name="modal-zipcode-input" class="mt-1 p-2 w-full border border-black border-b rounded-lg focus:outline-none focus:border-black">
+                </div>
+                
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">Select Dietary Restrictions and Allergies</p>
+                    
+                    <button id="closeModal" class="focus:outline-none">
+                        <div class="w-5 h-5 text-black">
+                            <div class="w-full h-0.5 bg-black transform rotate-45 origin-center"></div>
+                            <div class="w-full h-0.5 bg-black transform -rotate-45 origin-center"></div>
+                        </div>
+                    </button>
+                </div>
+              
+                <div class="grid grid-cols-1 gap-2">
+                    <label><input type="checkbox" class="form-checkbox" value="vegetarian"> Vegetarian</label>
+                    <label><input type="checkbox" class="form-checkbox" value="vegan"> Vegan</label>
+                    <label><input type="checkbox" class="form-checkbox" value="pescatarian"> Pescatarian</label>
+                    <label><input type="checkbox" class="form-checkbox" value="gluten"> Gluten Allergy</label>
+                    <label><input type="checkbox" class="form-checkbox" value="dairy"> Dairy Allergy</label>
+                    <label><input type="checkbox" class="form-checkbox" value="nuts"> Nut Allergy</label>
+                    <label><input type="checkbox" class="form-checkbox" value="shellfish"> Shellfish Allergy</label>
+                    <label><input type="checkbox" class="form-checkbox" value="soy"> Soy Allergy</label>   
+                </div>
+                
+                <div class="flex justify-end pt-2">
+                    <button id="applyFilters" class="px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-600">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
