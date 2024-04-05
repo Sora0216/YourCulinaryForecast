@@ -3,8 +3,38 @@
 @tailwind utilities;
 
 
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 5px; /* Add border-radius to round out the input field */
+}
 
 
+form button {
+  padding: 5px 10px;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 5px; /* Add border-radius to round out the button */
+  cursor: pointer;
+}
+
+Body {
+ 
+}
+
+#target-div {
+  background-color: aquamarine;
+  width: 100%;
+  height: 200px;
+}
 
 .food-images {
   display: flex;
@@ -14,9 +44,15 @@
   margin: 0 auto;
 }
 
+.food-images img:hover {
+  transform: scale(1.1); /* Scale up the image on hover */
+  opacity: 0.8; /* Reduce opacity on hover */
+}
+
 .food-images img {
     width: 30%; 
     height: auto;
+    border-radius: 10px;
   }
 
 #Recipe-Names {
