@@ -8,7 +8,7 @@ This web-site was made with HTML, JavaScript, CSS and Tailwind.
 It allows a user to enter their zip-code, which then generates a list of recipes that would be enjoyable for the current weather conditions.
 
 ## Usage
-1. Navigate to:  https://sora0216.github.io/SeasonalEats/
+1. Navigate to:  https://sora0216.github.io/YourCulinaryForecast/
 2. Enter you zipcode into the modal and press the apply button. 
 3. The modal will disappear and the user will see their current weather displayed on the weather dashboard.
 4. The user will also see a gallary of recipe images displayed below that are appropriate for their current weather conditions.
