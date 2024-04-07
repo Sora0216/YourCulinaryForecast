@@ -34,7 +34,7 @@ applyFiltersButton.addEventListener('click', function(event) {
 function requestWeather(event) {
   event.preventDefault();
   const zipcode = document.getElementById('zipcode-input').value;
-  let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=b8cec87fcad4466891c1e31ddead93d0&units=I`;
+  let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=0ebe550f05ea43fc8fa4244dfa62a832&units=I`;
   fetch(weatherbitApi)
     .then(function (response) {
       if (!response.ok) {
@@ -79,7 +79,7 @@ function requestWeatherModal(event) {
         //retrieve weather data
         const weatherData = data.data[0];
         //update city name
-        document.getElementById('city-name').textContent = weatherData.city_name + ',' + weatherData.state_code;
+        document.getElementById('city-name').textContent = weatherData.city_name + ', ' + weatherData.state_code;
         //update temperature
         document.getElementById('temperature-info').textContent = weatherData.temp + '˚F';
         //update date
@@ -95,7 +95,7 @@ function requestRecipes(temperature) {
   } else {
     query = 'winter';
   }
-  const spoonacularAPI = `https://api.spoonacular.com/recipes/complexSearch?apiKey=99232366887c49358403ec00d7bef302&number=6&query=${query}`;
+  const spoonacularAPI = `https://api.spoonacular.com/recipes/complexSearch?apiKey=261372e812154de3aa5e2cfa8938aaa2&number=6&query=${query}`;
   fetch(spoonacularAPI)
     .then(function (response) {
       if (!response.ok) {
@@ -112,7 +112,7 @@ function requestRecipes(temperature) {
       console.error('Error fetching recipes:', error);
     });
 }
-//Juan Changes
+//Juan's Function
 function displayRecipes(data) {
   const resultsDiv1 = document.getElementById('results1');
   const resultsDiv2 = document.getElementById('results2');
@@ -152,8 +152,6 @@ function displayRecipes(data) {
   // Display recipes in resultsDiv2
   createRecipeElements(recipes2, resultsDiv2);
 }
-//When a zip-code is entered and the apply button in the modal or the submit button above the weather
-// cont. from above... dashboard are clicked, the weather updates in the dashboard and both the weather
-// and the weather appropriate recipes log in the console.
+
 submitButton.addEventListener('click', requestWeather);
 getRecipesButton.addEventListener('click', requestRecipes);
