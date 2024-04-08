@@ -2,7 +2,7 @@
 
 ## Description
 
-Seasonal Eats is a web application that provides weather-appropriate recipe suggestions based on the user's location. By entering a zip code, users can get real-time weather information and discover delicious recipes tailored to the current weather conditions.
+Your Culinary Forecast is a web application that provides weather-appropriate recipe suggestions based on the user's location. By entering a zip code, users can get real-time weather information and discover delicious recipes tailored to the current weather conditions.
 
 ## Features
 
