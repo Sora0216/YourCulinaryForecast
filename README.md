@@ -1,33 +1,4 @@
-# Team-9-Seasonal Eats
-
-# Seasonal Eats
-A website that recommends recipes based on the current weather in your area.
-
-## Description
-This web-site was made with HTML, JavaScript, CSS and Tailwind.
-It allows a user to enter their zip-code, which then generates a list of recipes that would be enjoyable for the current weather conditions.
-
-## Usage
-1. Navigate to:  https://sora0216.github.io/SeasonalEats/
-2. Enter you zipcode into the modal and press the apply button. 
-3. The modal will disappear and the user will see their current weather displayed on the weather dashboard.
-4. The user will also see a gallary of recipe images displayed below that are appropriate for their current weather conditions.
-5. If a dish looks appealing, the user can hover their mouse over their preferred recipe image, to be shown the recipe card with a list of ingredients and directions for preparing the recipe.
-6. The user can also choose to enter a new zipcode in the search box, which will display new recipes (if the weather is markedly different in the new location).
-
-## Technologies Used
-- HTML
-- JavaScript
-- CSS
-- Tailwind
-
-## Image of application
-
-
-## Credits
-Give credit for the weather dashboard and modal here?
-
-# Seasonal Eats
+# Your Culinary Forecast 
 
 ## Description
 
@@ -43,24 +14,25 @@ Seasonal Eats is a web application that provides weather-appropriate recipe sugg
 
 ## Usage
 
-1. **Enter Zip Code**: Input your zip code in the designated field and click the "Submit" button.
-2. **View Weather**: The weather dashboard will update with the current weather conditions for your location.
-3. **Get Recipes**: Click the "Get Recipes" button to fetch recipe recommendations based on the weather.
-4. **Customize Preferences**: Optionally, customize dietary restrictions and allergies in the modal window before getting recipe suggestions.
+1. **Enter Zip Code**: Input your zip code in the designated field and click the "Apply" button. 
+2. **Customize Preferences**: Optionally, customize dietary restrictions and allergies in the modal window before getting recipe suggestions.
+3. **View Weather**: The weather dashboard will update with the current weather conditions for your location.
+4. **Get Recipes**: Click the "Get Recipes" button to fetch recipe recommendations based on the weather.
 5. **Explore Recipes**: Explore the displayed recipes and click on them for more details or cooking instructions.
+6. Additionally, the option to input a new zip code in the search box is avaibale, which will present new recipes (if the weather significantly differs in the new location).
 
 ## Installation
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/Sora0216/SeasonalEats.git
+    git clone https://github.com/Sora0216/YourCulinaryForecast.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd seasonal-eats
+    cd YourCulinaryForecast
     ```
 
 3. Open `index.html` in your preferred web browser.
@@ -70,8 +42,14 @@ Seasonal Eats is a web application that provides weather-appropriate recipe sugg
 - [Tailwind CSS](https://tailwindcss.com/): Used for styling the user interface.
 - [Spoonacular API](https://spoonacular.com/food-api): Provides recipe data based on search queries.
 - [Weatherbit API](https://www.weatherbit.io/): Provides current weather data based on zip code.
-- **Modal Component**: [Insert credits for modal component if applicable]
-- **Weather Dashboard**: [Insert credits for weather dashboard if applicable]
+- **Weather Dashboard**: By: [Nizantz](https://tailwindcomponents.com/component/weather-card)
+
+## Contributors
+
+- Ivory Rines: () [Github](https://github.com/IvoryRines)
+- Stephen Cooper: [Github](https://github.com/Scoops113)
+- Roberto Martinez: [Github](https://github.com/Sora0216)
+- Juan Garcia: [Github](https://github.com/Jddg95)
 
 ## Contributing
 
