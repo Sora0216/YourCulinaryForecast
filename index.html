@@ -3,81 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seasonal Eats</title>
+    <title>CulinaryForecast</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
-<body>
-    <header class="row">
-      <h1 class="col-8 text-4xl">Seasonal Eats</h1>
-      <div class="col-6">
-        <div class="mt-5 mx-7">
-          <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Please enter your zip code for weather appropriate recipe suggestions!</label>
-          <input id="zipcode-input" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="Zip code" />
-          <button id='submit-button' class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Submit</button>
+
+<body class="bg-gray-800">
+
+  <header>
+    <div class="min-h-full">
+      <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <img class="h-8 w-8" src="assets/images/Food-Logo-Graphics-1-98-580x386.jpg" alt="Your Company">
+              </div>
+              <div class="hidden lg:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 md:px-5 text-sm font-medium" aria-current="page">YourCulinaryForecast</a>
+                  <div class="md:block-inline">
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Saved Recipes</a>
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Ingredient Info</a>
+                    <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"></a> -->
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact Us</a>
+                  </div> 
+                  <form>
+                    <input type="text" id="zipcode-input" placeholder="Zip Code">
+                    <button type="button" id="submit-button"><i class="fas fa-search"></i></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+             <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="lg:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="bg-gray-900 text-center text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">YourCulinaryForecast</a>
+            <!-- <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Recipes</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"></a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About Us</a> -->
+          </div>
+          
         </div>
-      </div>
-    </header>
-    <!-- component -->
-    <div id="weather-dashboard" class="container bg-grey-lightest mx-auto shadow rounded pb-4 bg-cover" style="color:#606F7B;background-color: rgb(165, 182, 198); background-image:url('https://68.media.tumblr.com/f6a4004f3092b0d664daeabb95d5d195/tumblr_oduyciOJNb1uhjffgo1_500.gif');">
-      <div class="mt-2 p-4 border-b border-grey-light  text-center">
-        <span id="city-name" class="text-4xl font-thin">Austin, TX</span>
-        <span id="postal-code" class="hidden sm:inline-block align-bottom text-xs">( 78704 )</span>
-      </div>
-      <div class="flex justify-center">
-        <div class="text-center p-2">
-            <div class="text-lg text-grey-light">
-                <span id="temperature-info" class="text-center text-5xl text-#606F7B mx-6  font-thin">71˚F</span>
+            <div class="hidden lg:block">
+              <div class="ml-4 flex items-center md:ml-6"></div>
             </div>
-            <div id="date-info" class="text-grey-light tracking-wide">
-              Tuesday | 2 Apr
+            <form class="lg:hidden block">
+              <input type="text" id="zipcode-input" placeholder="Zip Code">
+              <button type="button" id="submit-button">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+            <div class="-mr-2 flex lg:hidden">
+              <!-- Mobile menu button -->
+              <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!-- Menu open: "hidden", Menu closed: "block" -->
+                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!-- Menu open: "block", Menu closed: "hidden" -->
+                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
+          </div>
+        </div>
+    
+       
+      </nav>
+    </div>
+  </header>
+    <!-- Weather Dashboard -->
+  <div id="target-div" id="weather-dashboard" class="container bg-grey-lightest mx-auto shadow rounded pb-4 bg-cover" style="color:#606F7B;background-color: rgb(165, 182, 198); background-image:url('https://68.media.tumblr.com/f6a4004f3092b0d664daeabb95d5d195/tumblr_oduyciOJNb1uhjffgo1_500.gif');">
+    <div class="mt-2 p-4 text-center">
+      <span id="city-name" class="text-4xl font-thin">Austin, TX</span>
+    </div>
+    <div class="flex justify-center">
+      <div class="text-center p-2">
+          <div class="text-lg text-grey-light">
+              <span id="temperature-info" class="text-center text-5xl text-#606F7B mx-6  font-thin">71˚F</span>
+          </div>
+          <div id="date-info" class="text-grey-light tracking-wide">
+            Tuesday | 2 Apr
+          </div>
+        </div>
+
+        <!-- Stephen's Modal -->
+        <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+          <div class="modal-overlay absolute w-full h-full bg-black opacity-50"></div>
+          <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
+              <div class="modal-content py-4 text-left px-6">
+                  <div class="mb-6">
+                      <label for="zipCodeModal" class="block text-gray-700 mb-2">Enter Your Zip Code:</label>
+                      <input type="text" id="modal-zipcode-input" name="modal-zipcode-input" class="mt-1 p-2 w-full border border-black border-b rounded-lg focus:outline-none focus:border-black">
+                  </div>
+                  <div class="flex justify-between items-center pb-3">
+                      <p class="text-2xl font-bold">Select Dietary Restrictions and Allergies</p>
+                      <button id="closeModal" class="focus:outline-none">
+                          <div class="w-5 h-5 text-black">
+                              <div class="w-full h-0.5 bg-black transform rotate-45 origin-center"></div>
+                              <div class="w-full h-0.5 bg-black transform -rotate-45 origin-center"></div>
+                          </div>
+                      </button>
+                  </div>
+                  <div class="grid grid-cols-1 gap-2">
+                      <label><input type="checkbox" class="form-checkbox" value="vegetarian"> Vegetarian</label>
+                      <label><input type="checkbox" class="form-checkbox" value="vegan"> Vegan</label>
+                      <label><input type="checkbox" class="form-checkbox" value="pescatarian"> Pescatarian</label>
+                      <label><input type="checkbox" class="form-checkbox" value="gluten"> Gluten Allergy</label>
+                      <label><input type="checkbox" class="form-checkbox" value="dairy"> Dairy Allergy</label>
+                      <label><input type="checkbox" class="form-checkbox" value="nuts"> Nut Allergy</label>
+                      <label><input type="checkbox" class="form-checkbox" value="shellfish"> Shellfish Allergy</label>
+                      <label><input type="checkbox" class="form-checkbox" value="soy"> Soy Allergy</label>
+                  </div>
+                  <div class="flex justify-end pt-2">
+                      <button id="applyFilters" class="px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-600">Apply</button>
+                  </div>
+              </div>
           </div>
       </div>
     </div>
-    <div>
+
+  </div>
+
+<!-- These lines of code do not have functionality and will be deleted if they remain non functioning -->
+      <!-- <div>
       <div id="searchHistory"></div>
-    </div>
-    <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-      <button class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2' id='get-recipes-button'>Get Recipes</button>
-    </div>
-    </div>
       </div>
-      <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
-        <div class="modal-overlay absolute w-full h-full bg-black opacity-50"></div>
-        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
-            <div class="modal-content py-4 text-left px-6">
-                <div class="mb-6">
-                    <label for="zipCodeModal" class="block text-gray-700 mb-2">Enter Your Zip Code:</label>
-                    <input type="text" id="modal-zipcode-input" name="modal-zipcode-input" class="mt-1 p-2 w-full border border-black border-b rounded-lg focus:outline-none focus:border-black">
-                </div>
-                <div class="flex justify-between items-center pb-3">
-                    <p class="text-2xl font-bold">Select Dietary Restrictions and Allergies</p>
-                    <button id="closeModal" class="focus:outline-none">
-                        <div class="w-5 h-5 text-black">
-                            <div class="w-full h-0.5 bg-black transform rotate-45 origin-center"></div>
-                            <div class="w-full h-0.5 bg-black transform -rotate-45 origin-center"></div>
-                        </div>
-                    </button>
-                </div>
-                <div class="grid grid-cols-1 gap-2">
-                    <label><input type="checkbox" class="form-checkbox" value="vegetarian"> Vegetarian</label>
-                    <label><input type="checkbox" class="form-checkbox" value="vegan"> Vegan</label>
-                    <label><input type="checkbox" class="form-checkbox" value="pescatarian"> Pescatarian</label>
-                    <label><input type="checkbox" class="form-checkbox" value="gluten"> Gluten Allergy</label>
-                    <label><input type="checkbox" class="form-checkbox" value="dairy"> Dairy Allergy</label>
-                    <label><input type="checkbox" class="form-checkbox" value="nuts"> Nut Allergy</label>
-                    <label><input type="checkbox" class="form-checkbox" value="shellfish"> Shellfish Allergy</label>
-                    <label><input type="checkbox" class="form-checkbox" value="soy"> Soy Allergy</label>
-                </div>
-                <div class="flex justify-end pt-2">
-                    <button id="applyFilters" class="px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-600">Apply</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="results1"></div>
-    <div id="results2"></div>
-    <script src="./assets/js/script.js"></script>
+      <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'></div> -->
+
+<div class="separator mb-20 p-4 mb-20">
+  <p class="row">
+    <h2 class="text-center text-4xl text-white">Delicious recipes ideal for your current weather:</h2>
+  </p>
+</div>
+
+<div class ="display-recipes m-20">
+  <div class="food-images recipe" div id="results1" ></div>
+  <div class="food-images recipe" div id="results2"></div>
+</div>
+    
+<script src="./assets/js/script.js"></script>
 </body>
+
+<footer>
+</footer>
+
 </html>
