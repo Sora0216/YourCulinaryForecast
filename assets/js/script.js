@@ -6,6 +6,8 @@ const modal = document.getElementById('modal');
 const closeModalButton = document.getElementById('closeModal');
 const applyFiltersButton = document.getElementById('applyFilters');
 const zipCodeInput = document.getElementById('modal-zipcode-input');
+//const mobileSubmitButton = document.getElementById('mobile-submit-button'); 
+
 //Modal functions added by Stephen
 function showModal() {
     modal.classList.remove('hidden');
@@ -30,6 +32,32 @@ applyFiltersButton.addEventListener('click', function(event) {
     alert('Please enter a valid zip code.');
   }
 });
+
+//Duplicated weather function for Mobile view
+// function requestWeatherMobile(event) {
+//   event.preventDefault();
+//   const zipcode = document.getElementById('mobile-zipcode-input').value
+//   let weatherbitApi = `https://api.weatherbit.io/v2.0/current?&postal_code=${zipcode}&key=0ebe550f05ea43fc8fa4244dfa62a832&units=I`;
+//   fetch(weatherbitApi)
+//     .then(function (response) {
+//       if (!response.ok) {
+//         throw new Error('There was a problem fetching the weather data');
+//       }
+//       return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//         //retrieve weather data
+//         const weatherData = data.data[0];
+//         //update city name
+//         document.getElementById('city-name').textContent = weatherData.city_name + ', ' + weatherData.state_code;
+//         //update temperature
+//         document.getElementById('temperature-info').textContent = weatherData.temp + '˚F';
+//         //update date
+//         document.getElementById('date-info').textContent = weatherData.datetime + 'pm';
+//     });
+// }
+
 //Function to retrieve weather data from weatherbit API and use it to populate the weather dashboard
 function requestWeather(event) {
   event.preventDefault();
@@ -60,8 +88,10 @@ function requestWeather(event) {
     })
     .catch(function(error) {
       console.error('Error fetching weather data:', error);
+      console.log(error)
     });
 }
+
 //Duplicated weather function for Stephen's Modal
 function requestWeatherModal(event) {
   event.preventDefault();
@@ -154,4 +184,4 @@ function displayRecipes(data) {
 }
 
 submitButton.addEventListener('click', requestWeather);
-getRecipesButton.addEventListener('click', requestRecipes);
+//mobileSubmitButton.addEventListener('click', requestWeather);
