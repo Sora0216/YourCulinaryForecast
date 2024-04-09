@@ -18,6 +18,10 @@ Your Culinary Forecast is a web application that provides weather-appropriate re
 
 ![Animated GIF](./assets/images/readme/Untitled_%20Apr%208,%202024%207_26%20PM.gif)
 
+## Screenshots
+![Alt Text](./assets/images/full%20size%20ss%20summer%20d.png)
+![Alt Text](./assets/images/full%20size%20ss%20winter%20m.png)
+
 ## Usage
 
 1. **Enter Zip Code**: Input your zip code in the designated field and click the "Apply" button. 
