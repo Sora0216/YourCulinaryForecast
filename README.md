@@ -14,6 +14,10 @@ Your Culinary Forecast is a web application that provides weather-appropriate re
 - **Responsive Design**: Ensures optimal viewing experience across various devices, including desktops, tablets, and mobile phones.
 - **Error Handling**: Provides informative error messages for invalid zip codes or failed API requests to enhance user experience.
 
+## Demonstration
+
+![Animated GIF](./assets/images/readme/Untitled_%20Apr%208,%202024%207_26%20PM.gif)
+
 ## Usage
 
 1. **Enter Zip Code**: Input your zip code in the designated field and click the "Apply" button. 
