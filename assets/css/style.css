@@ -74,6 +74,9 @@ div.display-recipes{
     margin-bottom: 10px;
 }
 
+.food-images-separator {
+    height: 100px;
+}
 @media screen and (max-width: 1230px) {
   form {
     padding: 10px 10px 10px 150px;
@@ -134,9 +137,7 @@ div.display-recipes{
 
 
 @media screen and (max-width: 768px) {
-  form {
-    padding: 10px 10px 10px 10px;
-  }
+
 
 }
 
@@ -147,8 +148,15 @@ div.display-recipes{
 }
 
 @media screen and (max-width: 360px) {
- 
+  .food-images img {
+    width: 100px; 
+    height: 100px;
+  }
 
+  .food-images h3 {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 
