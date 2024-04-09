@@ -39,6 +39,11 @@ Your Culinary Forecast is a web application that provides weather-appropriate re
 
 3. Open `index.html` in your preferred web browser.
 
+## Screenshots
+
+![Alt Text](./assets/images/culinary-forecast-modal.png)
+![Alt Text](./assets/images/culinary-forecast-webpage.png)
+
 ## Dependencies
 
 - [Tailwind CSS](https://tailwindcss.com/): Used for styling the user interface.
